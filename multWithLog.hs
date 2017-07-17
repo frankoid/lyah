@@ -1,7 +1,7 @@
 import Control.Monad.Writer
 
 logNumber :: Int -> Writer [String] Int
-logNumber x = Writer (x, ["Got number: " ++ show x])
+logNumber x = writer (x, ["Got number: " ++ show x])
 
 multWithLog :: Writer [String] Int
 multWithLog = do
