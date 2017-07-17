@@ -22,8 +22,17 @@ addDrink _ = ("beer", Sum 30)
 
 newtype Writer w a = Writer { runWriter :: (a, w) }
 
+-- https://stackoverflow.com/questions/32929252/can-ghc-derive-functor-and-applicative-instances-for-a-monad-transformer
+-- https://wiki.haskell.org/Functor-Applicative-Monad_Proposal#Missing_superclasses
+instance (Monoid w) => Applicative (Writer w) where
+  pure = return
+  (<*>) = ap 
+
+instance (Monoid w) => Functor (Writer w) where
+  fmap = liftM
+    
 instance (Monoid w) => Monad (Writer w) where
-    return x = Writer (x, mempty)
-    (Writer (x,v)) >>= f =
-      let (Writer (y, v')) = f x
-      in Writer (y, v `mappend` v')
+  return x = Writer (x, mempty)
+  (Writer (x,v)) >>= f =
+    let (Writer (y, v')) = f x
+    in Writer (y, v `mappend` v')
