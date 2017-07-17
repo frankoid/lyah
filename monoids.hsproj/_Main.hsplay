@@ -1,0 +1,17 @@
+-- Haskell Playground 1.0
+getProduct $ (Product 5) <> 2
+getProduct $ 3 <> 2
+
+getSum $ (Sum 3) `mappend` (Sum 5) `mappend` (Sum 7)
+
+getProduct $ 3 `mappend` 5 `mappend` 8
+
+getAll $ True <> False
+
+5 * 2
+
+import Data.List
+intersperse '-' "ABC"
+
+reverse <> (intersperse '-') $ "ABC"
+

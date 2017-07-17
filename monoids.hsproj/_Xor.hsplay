@@ -1,0 +1,13 @@
+-- Haskell Playground 1.0
+Xor True
+
+Any True
+
+getXor $ (Xor True) <> (Xor False)
+
+True `xor` False
+
+(Xor False) <> (Xor False) == (Xor False)
+(Xor True) <> (Xor False) == (Xor True)
+(Xor False) <> (Xor True) == (Xor True)
+(Xor True) <> (Xor True) == (Xor False)

@@ -1,0 +1,13 @@
+-- Haskell Playground 1.0
+import FoldTree
+
+F.foldl (+) 0 testTree
+
+F.foldl (\x y -> x + 1) 0 testTree
+
+--F.foldl (++) [] testTree
+
+F.foldMap (Sum .negate) testTree
+getSum $ F.foldMap negate testTree
+
+F.foldMap show testTree
